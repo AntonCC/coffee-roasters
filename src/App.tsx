@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Switch, Route } from 'react-router-dom';
+// Components
+import Navbar from './components/navbar/navbar'
+//Pages
+import Home from './pages/home/home';
+import About from './pages/about/about';
+import CreatePlan from './pages/create-plan/create-plan'
 
-function App() {
+
+const routes = [
+  {path: '/', name: 'Home', component: Home},
+  {path: '/about', name: 'About', component: About},
+  {path: '/create-plan', name: 'CreatePlan', component: CreatePlan}
+]
+
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Switch>
+        {
+          routes.map(({ path, name, component}) => (
+            <Route key={name} exact path={path} component={component} />
+          ))
+        }
+      </Switch>
     </div>
   );
 }
