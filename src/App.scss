@@ -2,9 +2,9 @@
 
 .container {
   height: 100%;
+  width: 90%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 8rem;
 }
 
 h1, h2, h3, h4 {
@@ -15,6 +15,12 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 7.2rem;
   line-height: 7.2rem;
+  &.title-alternate {
+    font-size: 15rem;
+    // line-height: 7.2rem;
+    line-height: 15rem;
+    text-transform: lowercase;
+  }
 }
 
 h2 {

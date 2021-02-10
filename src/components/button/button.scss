@@ -1,0 +1,17 @@
+.cta-btn-primary {
+  outline: none;
+  border: none;
+  background: #0E8784;
+  padding: 1.5rem 3.0rem;
+  border-radius: 10px;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  color: #FEFCF7;
+  cursor: pointer;
+  transition: background 250ms ease-in-out;
+  &:hover {
+    background: #66D2CF;
+  }
+}
