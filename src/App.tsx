@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.scss';
 import { Switch, Route } from 'react-router-dom';
-// Components
-import Navbar from './components/navbar/navbar'
 //Pages
 import Home from './pages/home/home';
 import About from './pages/about/about';
 import CreatePlan from './pages/create-plan/create-plan'
+// Components
+import Navbar from './components/navbar/navbar'
+import Footer from './components/footer/footer'
+
+
 
 
 const routes = [
@@ -26,6 +29,7 @@ const App: React.FC = () => {
           ))
         }
       </Switch>
+      <Footer />
     </div>
   );
 }

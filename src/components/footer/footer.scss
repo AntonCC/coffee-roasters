@@ -1,0 +1,47 @@
+.footer-main {
+  width: 100%;
+  height: 120px;
+  background: #2C343E;
+  margin-bottom: 8.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8.5rem;
+  .side-a {
+    display: flex;
+    .logo {
+      margin-right: 10rem;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      li {
+        a {
+          font-size: 1.4rem;
+          text-decoration: none;
+          color: #83888F;
+          // padding: 0 1.85rem;
+          margin-left: 3.5rem;
+          text-transform: uppercase;
+          &:hover {
+            color: #FEFCF7;
+          }
+        }
+      }
+    }
+  }
+  .side-b {
+    .social-media {
+      justify-self: right;
+      svg {
+        margin-left: 2.4rem;
+        cursor: pointer;
+        &:hover {
+          path {
+            fill: #FDD6BA;
+          }
+        }
+      }
+    }
+  }
+}
