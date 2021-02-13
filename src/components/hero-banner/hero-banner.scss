@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   padding: 11.18rem 8.2rem;
+  background: url('../../assets/home/desktop/image-hero-coffeepress.jpg') center/cover;
   h1 {
     color: #FEFCF7;
     max-width: 493px;
@@ -15,5 +16,12 @@
     max-width: 445px;
     opacity: .8;
     margin-bottom: 56px; 
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .hero-banner {
+    background: url('../../assets/home/tablet/image-hero-coffeepress.jpg') right/cover;
+    // background-position: right;
   }
 }

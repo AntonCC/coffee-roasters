@@ -51,6 +51,6 @@ export const perksInfo = [
   {
     title: 'Free Shipping',
     description: 'We cover the cost and coffee is delivered fast. Peak freshness: guaranteed.',
-    img: Bean
+    img: Truck
   },
 ]

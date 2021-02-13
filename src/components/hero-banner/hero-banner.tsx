@@ -11,7 +11,7 @@ interface Props {
 
 const HeroBanner: React.FC<Props> = ({ title, body, btnText}) => {
   return (
-    <div className='hero-banner' style={{ background: `url(${Hero})` }}>
+    <div className='hero-banner'>
       <div className="text">
         <h1>{ title }</h1>
         <p>{ body }</p>

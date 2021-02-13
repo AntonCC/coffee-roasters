@@ -13,8 +13,10 @@ const PerkCard: React.FC<Props> = ({ title, description, img}) => {
       <div className="img">
         <img src={ img } alt="Bean"/>
       </div>
-      <h4 className="title">{ title }</h4>
-      <p className="description">{ description }</p>
+      <div className="text">
+        <h4 className="title">{ title }</h4>
+        <p className="description">{ description }</p>
+      </div>
     </div>
   )
 }
