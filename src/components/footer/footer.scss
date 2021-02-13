@@ -1,12 +1,11 @@
 .footer-main {
   width: 100%;
-  height: 120px;
   background: #2C343E;
   margin-bottom: 8.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 8.5rem;
+  padding: 4.5rem 8.5rem;
   .side-a {
     display: flex;
     .logo {
@@ -42,6 +41,31 @@
           }
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .footer-main {
+    flex-direction: column;
+    .side-a {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .logo {
+        margin: 0 0 3.2rem 0;
+      }
+      ul {
+        margin-bottom: 6.5rem;
+        li {
+          a {
+            // margin-left: 0;
+          }
+        }
+      }
+    }
+    .side-b {
+
     }
   }
 }

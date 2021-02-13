@@ -15,9 +15,11 @@ const HeroBanner: React.FC<Props> = ({ title, body, btnText}) => {
       <div className="text">
         <h1>{ title }</h1>
         <p>{ body }</p>
-        <Button>
-          { btnText }
-        </Button>
+        <div className="cta-btn">
+          <Button>
+            { btnText }
+          </Button>
+        </div>
       </div>
     </div>
   )

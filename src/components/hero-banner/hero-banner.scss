@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   padding: 11.18rem 8.2rem;
-  background: url('../../assets/home/desktop/image-hero-coffeepress.jpg') center/cover;
+  background: url('../../assets/home/desktop/image-hero-coffeepress.jpg') no-repeat center/cover;
   h1 {
     color: #FEFCF7;
     max-width: 493px;
@@ -21,7 +21,25 @@
 
 @media only screen and (max-width: 900px) {
   .hero-banner {
-    background: url('../../assets/home/tablet/image-hero-coffeepress.jpg') right/cover;
-    // background-position: right;
+    background: url('../../assets/home/tablet/image-hero-coffeepress.jpg') no-repeat right/cover;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  .hero-banner {
+    padding: 11.8rem 3rem;
+    justify-content: center;
+    background: linear-gradient(to right, rgba(0,0,0,.3), rgba(0,0,0,.3)), url('../../assets/home/mobile/image-hero-coffeepress.jpg') no-repeat center/cover;
+    .text {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+    }
   }
 }
