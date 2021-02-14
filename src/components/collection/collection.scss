@@ -21,11 +21,24 @@
 @media only screen and (max-width: 1200px) {
   .collection {
     // margin: 7rem auto 12rem auto;
-    margin: 5rem auto 15rem auto;
+    margin: 5rem auto 10rem auto;
     .title-alternate {
       font-size: 75px;
       top: 50px;
       left: calc(50% - 262px);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .collection {
+    // margin: 0rem auto 10rem auto;
+    grid-gap: 0rem;
+    .title-alternate {
+      font-size: 4.2rem;
+      top: -10px;
+      left: calc(50% - 147px);
+      opacity: .3;
     }
   }
 }

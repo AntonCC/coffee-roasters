@@ -13,3 +13,12 @@
     margin-bottom: 2.4rem;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .product-card {
+    padding-top: 7rem;
+    img {
+      margin-bottom: 2.4rem;
+    }
+  }
+}
