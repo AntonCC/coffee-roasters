@@ -1,0 +1,21 @@
+.headquarters {
+  padding: 0 9rem;
+  width: 100%;
+  margin-bottom: 16rem;
+  .title {
+    margin-bottom: 7.2rem;
+  }
+  .headquarters-cards {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .card {
+      svg {
+        margin-bottom: 4.6rem;
+      }
+      .area {
+        margin-bottom: 2.4rem;
+      }
+    }
+  }
+}
