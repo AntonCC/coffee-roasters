@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import './App.scss';
 import { Switch, Route } from 'react-router-dom';
+import { WidthContext } from './contexts/widthContext'
+import debounce from './helperFuncs/debounce'
 //Pages
 import Home from './pages/home/home';
 import About from './pages/about/about';
@@ -10,8 +12,6 @@ import Navbar from './components/navbar/navbar'
 import Footer from './components/footer/footer'
 
 
-
-
 const routes = [
   {path: '/', name: 'Home', component: Home},
   {path: '/about', name: 'About', component: About},
@@ -19,6 +19,20 @@ const routes = [
 ]
 
 const App: React.FC = () => {
+  const [width, setWidth] = useContext(WidthContext)
+
+  const debouncedHandleWidth = debounce(() => {
+    setWidth(window.innerWidth)
+  }, 75)
+
+  useEffect(() => {
+    window.addEventListener('resize', debouncedHandleWidth)
+
+    return () => {
+      window.removeEventListener('resize', debouncedHandleWidth)
+    }
+  }, [])
+
   return (
     <div className="App">
       <Navbar />

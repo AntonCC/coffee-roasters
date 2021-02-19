@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { WidthContext } from '../../contexts/widthContext'
 import './banner.scss'
 
 interface Props {
   title: string,
-  body: string
+  body: string,
+  backgroundImg: string,
+  backgroundImgTablet?: string,
+  backgroundImgMobile?: string
 }
 
-const Banner: React.FC<Props> = ({ title, body }) => {
+const Banner: React.FC<Props> = ({ title, body, backgroundImg, backgroundImgMobile }) => {
+  const [width, setWidth] = useContext(WidthContext)
+  const [img, setImg] = useState(backgroundImg)
+
+  useEffect(() => {
+    if(width <= 700) {
+      setImg(backgroundImgMobile!)
+    } else {
+      setImg(backgroundImg)
+    }
+  }, [width])
+
   return (
-    <div className='banner'>
+    <div 
+      className='banner'
+      style={{ background: `linear-gradient(to right, rgba(0,0,0,.3), rgba(0,0,0,.3)), url('${img}') no-repeat center/cover`}}
+    >
       <div className="text">
         <h2>{ title }</h2>
         <p>{ body }</p>

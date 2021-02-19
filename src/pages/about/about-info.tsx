@@ -1,10 +1,15 @@
-// Value pics
+// Banner
+import WhiteCup from '../../assets/about/desktop/image-hero-whitecup.jpg'
+import WhiteCupMobile from '../../assets/about/mobile/image-hero-whitecup.jpg' 
+// Value 
 import Commitment from '../../assets/about/desktop/image-commitment.jpg'
 import Quality from '../../assets/about/desktop/image-quality.jpg'
 
 export const bannerInfo = {
   title: 'About Us',
-  body: 'Coffeeroasters began its journey of exotic discovery in 1999, highlighting stories of coffee from around the world. We have since been dedicated to bring the perfect cup - from bean to brew - in every shipment.'
+  body: 'Coffeeroasters began its journey of exotic discovery in 1999, highlighting stories of coffee from around the world. We have since been dedicated to bring the perfect cup - from bean to brew - in every shipment.',
+  backgroundImg: WhiteCup,
+  backgroundImgMobile: WhiteCupMobile
 }
 
 export const valueInfo = [
