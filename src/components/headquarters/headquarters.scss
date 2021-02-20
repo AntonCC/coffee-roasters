@@ -34,3 +34,25 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .headquarters {
+    margin-bottom: 12rem;
+    .title {
+      text-align: center;
+    }
+    .headquarters-cards {
+      flex-direction: column;
+      align-items: center;
+      .card {
+        text-align: center;
+        &:not(:last-child) {
+          margin: 0 0 8rem 0;
+        }
+        .area {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}
