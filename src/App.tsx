@@ -23,7 +23,7 @@ const App: React.FC = () => {
 
   const debouncedHandleWidth = debounce(() => {
     setWidth(window.innerWidth)
-  }, 75)
+  }, 50)
 
   useEffect(() => {
     window.addEventListener('resize', debouncedHandleWidth)

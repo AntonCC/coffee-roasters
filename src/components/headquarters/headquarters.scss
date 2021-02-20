@@ -21,3 +21,16 @@
     }
   }
 }
+
+@media only screen and (max-width: 1170px) {
+  .headquarters {
+    padding: 0;
+    .headquarters-cards {
+      .card {
+        &:not(:last-child) {
+          margin-right: 5rem;
+        }
+      }
+    }
+  }
+}
