@@ -36,6 +36,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Navbar />
+      {/* <MobileNavbar /> */}
       <Switch>
         {
           routes.map(({ path, name, component}) => (
