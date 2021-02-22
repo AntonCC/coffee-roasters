@@ -38,10 +38,19 @@ const Navbar: React.FC = () => {
                 : <Hamburger />
             }
           </div>
-
       </div>
       <div className={`mobile-slideout ${mobileOpen ? 'active' : ''}`}>
-
+        <ul>
+          <li>
+            <NavLink to='/' onClick={handleClick}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to='/about' onClick={handleClick}>About</NavLink>
+          </li>
+          <li>
+            <NavLink to='/create-plan' onClick={handleClick}>Create Your Plan</NavLink>
+          </li>
+        </ul>
       </div>
     </div>
   )
