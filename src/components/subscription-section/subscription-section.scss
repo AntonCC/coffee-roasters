@@ -1,0 +1,20 @@
+.subscription-section {
+  padding: 2.4rem 0;
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+  user-select: none;
+  &.active {
+    h4 {
+      color: red;
+    }
+  }
+  h4 {
+    color: #333D4B;
+    opacity: .5;
+    span {
+      opacity: .5;
+      color: #83888F;
+      margin-right: 3rem;
+    }
+  }
+}

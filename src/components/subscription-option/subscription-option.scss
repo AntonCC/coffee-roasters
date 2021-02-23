@@ -1,0 +1,19 @@
+.subscription-option {
+  height: 48px;
+  width: 100%;
+  position: relative;
+  padding-bottom: 8.8rem;
+  // background: lightblue;
+  .option-bar {
+    display: flex;
+    align-items: center;
+    h2 {
+      opacity: .6;
+      // margin-right: 8rem;
+    }
+    svg {
+      position: absolute;
+      right: 0;
+    }
+  }
+}

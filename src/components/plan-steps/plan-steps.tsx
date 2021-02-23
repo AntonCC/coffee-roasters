@@ -2,10 +2,20 @@ import React from 'react'
 import './plan-steps.scss'
 import Button from '../button/button'
 
-const PlanSteps: React.FC = () => {
+interface Props {
+  inverse?: boolean
+}
+
+const PlanSteps: React.FC<Props> = ({ inverse }) => {
   return (
-    <div className='plan-steps'>
-      <h4 className="title">How it works</h4>
+    <div className={`plan-steps ${inverse ? 'inverse' : ''}`}>
+      {
+        inverse 
+          ? ''
+          : (
+            <h4 className="title">How it works</h4>
+          )
+      }
       <div className="steps">
         <div className="line"></div>
         <div className="step">
@@ -30,11 +40,17 @@ const PlanSteps: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="cta-btn">
-        <Button>
-          Create a plan
-        </Button>
-      </div>
+      {
+        inverse
+          ? ''
+          : (
+            <div className="cta-btn">
+              <Button>
+                Create a plan
+              </Button>
+            </div>
+          )
+      }
     </div>
   )
 }

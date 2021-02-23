@@ -1,0 +1,11 @@
+.subscription-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .section {
+    width: 255px;
+  }
+  .options {
+    width: 730px;
+  }
+}

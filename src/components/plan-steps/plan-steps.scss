@@ -1,7 +1,8 @@
 .plan-steps {
-  // max-width: 1045px;
-  margin: 14.5rem 8.6rem 20rem 8.6rem;
+  margin: 14.5rem 0 20rem 0;
+  padding: 0 8.6rem;
   max-width: 100%;
+  border-radius: 10px;
   .title {
     opacity: .8;
     margin-bottom: 8rem;
@@ -24,7 +25,6 @@
       padding-top: 8.3rem;
       position: relative;
       .text {
-        // padding-right: 9rem;
         h1 {
           margin-bottom: 3.8rem;
           color: #FDD6BA;
@@ -53,11 +53,32 @@
   .cta-btn {
     margin-top: 6rem;
   }
+  &.inverse {
+    margin: 14.5rem 0 11rem 0;
+    background: #2C343E;
+    padding: 9rem 8.6rem;
+    .steps {
+      .step {
+        .text {
+          h3 {
+            color: #FEFCF7;
+          }
+          p {
+            color: #FEFCF7;
+          }
+        }
+        &::before {
+          background: #FEFCF7;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1300px) {
   .plan-steps {
     margin: 14.5rem 0 20rem 0;
+    padding: 9rem 3rem;
   }
 }
 
@@ -80,6 +101,9 @@
       }
       .step {
         max-width: 327px;
+        &:nth-child(2) {
+          padding: 0;
+        }
         .text {
           h1 {
             max-width: 100%;
