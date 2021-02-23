@@ -5,7 +5,12 @@
   user-select: none;
   &.active {
     h4 {
-      color: red;
+      color: #333D4B;
+      opacity: 1;
+      span {
+        color: #0E8784;
+        opacity: 1;
+      }
     }
   }
   h4 {

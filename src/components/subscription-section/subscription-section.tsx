@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react'
 import './subscription-section.scss'
 
 interface Props {
+  id: number,
+  activeSectionId: number,
+  setActiveSectionId: (active: number) => void,
   sectionNum: string,
   title: string,
-  active?: boolean
-  handleClick?: () => void
 }
 
-const SubscriptionSection: React.FC<Props> = ({ sectionNum, title }) => {
+const SubscriptionSection: React.FC<Props> = ({ id, activeSectionId, setActiveSectionId, sectionNum, title }) => {
   const [active, setActive] = useState(false)
 
-  const handleClick = () => {
-    setActive(!active)
-  }
-
   useEffect(() => {
-    console.log('Section active state changed.')
-  }, [active])
+    if(activeSectionId === id) {
+      setActive(true)
+    } else {
+      setActive(false)
+    }
+  }, [activeSectionId])
+
+  const handleClick = () => {
+    setActiveSectionId(id)
+  }
 
   return (
     <div className={`subscription-section ${active ? 'active' : ''}`} onClick={handleClick}>
