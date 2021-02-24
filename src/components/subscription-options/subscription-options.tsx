@@ -8,6 +8,11 @@ import { subscriptionSectionInfo, subscriptionOptionInfo } from '../../pages/cre
 const SubscriptionOptions: React.FC = () => {
   const [activeSectionId, setActiveSectionId] = useState(1)
   const [selectedArray, setSelectedArray] = useState([1])
+  const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string}>>([])
+
+  useEffect(() => {
+    console.log(selectedOptions)
+  }, [selectedOptions])
 
   return (
     <div className='subscription-options'>
@@ -32,6 +37,8 @@ const SubscriptionOptions: React.FC = () => {
               setActiveSectionId={setActiveSectionId}
               selectedArray={selectedArray}
               setSelectedArray={setSelectedArray} 
+              selectedOptions={selectedOptions}
+              setSelectedOptions={setSelectedOptions}
               {...info} 
             />
           ))

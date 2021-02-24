@@ -18,12 +18,15 @@
     }
   }
   .drop-down {
-    background: lightblue;
     width: 100%;
     height: 0;
     transition: all 300ms ease-in-out;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6rem;
     &.open {
-      height: 250px;
+      height: 325px;
     }
   }
 }
