@@ -1,0 +1,26 @@
+.order-summary {
+  .order-info {
+    background: #2C343E;
+    width: 100%;
+    padding: 3rem 6.5rem;
+    border-radius: 10px;
+    margin-bottom: 4rem;
+    .title {
+      text-transform: uppercase;
+      color: #FFFFFF;
+      opacity: .5;
+      margin-bottom: 1rem;
+    }
+    h4 {
+      color: #FFFFFF;
+      line-height: 4rem;
+      span {
+        color: #0E8784;
+      }
+    }
+  }
+  .cta-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

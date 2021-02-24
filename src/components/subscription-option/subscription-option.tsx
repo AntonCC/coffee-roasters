@@ -5,21 +5,31 @@ import { ReactComponent as Arrow } from '../../assets/plan/desktop/icon-arrow.sv
 interface Props {
   id: number,
   activeSectionId: number,
-  setActiveSectionId: (active: number) => void 
+  setActiveSectionId: (active: number) => void,
+  selectedArray: number[],
+  setSelectedArray: (selected: number[]) => void, 
   title: string,
 }
 
-const SubscriptionOption: React.FC<Props> = ({ id, activeSectionId, setActiveSectionId, title }) => {
+const SubscriptionOption: React.FC<Props> = ({ id, activeSectionId, setActiveSectionId, selectedArray, setSelectedArray, title }) => {
   const [open, setOpen] = useState(false)
-  const [prevActiveId, setPrevActiveId] = useState(0)
+  // const [prevActiveId, setPrevActiveId] = useState(0)
 
   const handleClick = () => {
     setActiveSectionId(id)
-    setOpen(!open)
+    if(!open) {
+      setOpen(true)
+      setSelectedArray([...selectedArray, id])
+    } else {
+      setOpen(false)
+      const newArr = selectedArray.filter(selected => selected !== id)
+      setSelectedArray(newArr)
+      setActiveSectionId(newArr[newArr.length-1])
+    }
   }
 
   useEffect(() => {
-
+    console.log('Selected array', selectedArray)
   }, [activeSectionId])
 
   return (

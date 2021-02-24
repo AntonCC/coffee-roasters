@@ -20,12 +20,12 @@ const SubscriptionSection: React.FC<Props> = ({ id, activeSectionId, setActiveSe
     }
   }, [activeSectionId])
 
-  const handleClick = () => {
-    setActiveSectionId(id)
-  }
+  // const handleClick = () => {
+  //   setActiveSectionId(id)
+  // }
 
   return (
-    <div className={`subscription-section ${active ? 'active' : ''}`} onClick={handleClick}>
+    <div className={`subscription-section ${active ? 'active' : ''}`}>
       <h4><span>{ sectionNum }</span>{ title }</h4>
     </div>
   )
