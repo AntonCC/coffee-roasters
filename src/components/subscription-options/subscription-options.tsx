@@ -10,9 +10,6 @@ const SubscriptionOptions: React.FC = () => {
   const [selectedArray, setSelectedArray] = useState([1])
   const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string}>>([])
 
-  // useEffect(() => {
-  // }, [selectedOptions])
-
   return (
     <div className='subscription-options'>
       <div className="section">
