@@ -13,16 +13,23 @@ const SelectOption: React.FC<Props> = ({ optionsId, selectedOptions, setSelected
   const [active, setActive] = useState(false)
 
   const handleClick = () => {
-    if(!active) {
-      setActive(true)
+    const foundOption = selectedOptions.find(options => options.id === optionsId)
+
+    if(!foundOption) {
       setSelectedOptions([...selectedOptions, {id: optionsId, optionTitle: optionTitle}])
     } else {
-      setActive(false)
+      const newSelectedOptions = selectedOptions.filter(options => options.id !== optionsId)
+      setSelectedOptions([...newSelectedOptions, {id: optionsId, optionTitle: optionTitle}])
     }
   }
 
   useEffect(() => {
-    
+    const foundOption = selectedOptions.find(options => options.id === optionsId)
+    if(foundOption?.optionTitle === optionTitle) {
+      setActive(true)
+    } else {
+      setActive(false)
+    }
   }, [selectedOptions])
 
   return (

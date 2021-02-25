@@ -20,9 +20,6 @@ const SubscriptionSection: React.FC<Props> = ({ id, activeSectionId, setActiveSe
     }
   }, [activeSectionId])
 
-  // const handleClick = () => {
-  //   setActiveSectionId(id)
-  // }
 
   return (
     <div className={`subscription-section ${active ? 'active' : ''}`}>

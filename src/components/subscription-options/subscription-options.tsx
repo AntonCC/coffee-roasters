@@ -10,9 +10,8 @@ const SubscriptionOptions: React.FC = () => {
   const [selectedArray, setSelectedArray] = useState([1])
   const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string}>>([])
 
-  useEffect(() => {
-    console.log(selectedOptions)
-  }, [selectedOptions])
+  // useEffect(() => {
+  // }, [selectedOptions])
 
   return (
     <div className='subscription-options'>
@@ -43,7 +42,7 @@ const SubscriptionOptions: React.FC = () => {
             />
           ))
         }
-        <OrderSummary />
+        <OrderSummary selectedOptions={selectedOptions} />
       </div>
     </div>
   )
