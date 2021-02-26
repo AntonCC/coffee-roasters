@@ -4,19 +4,27 @@ import OrderText from '../order-text/order-text'
 import Button from '../button/button'
 
 interface Props {
-  selectedOptions: Array<{id: number, optionTitle: string}>
+  selectedOptions: Array<{id: number, optionTitle: string}>,
+  openModal: boolean,
+  setOpenModal: (open: boolean) => void
 }
 
-const OrderSummary: React.FC<Props> = ({ selectedOptions }) => {
-  const [optionIds, setOptionIds] = useState<Array<number | undefined>>([])
+const OrderSummary: React.FC<Props> = ({ selectedOptions, openModal, setOpenModal }) => {
+  const [disabled, setDisabled] = useState(true)
 
   useEffect(() => {
-    // const arr: number[] | undefined = []
-    // selectedOptions.forEach(option => {
-    //   arr.push(option.id)
-    // })
-    // setOptionIds(arr)
+    if(selectedOptions.length === 5) {
+      setDisabled(false)
+    } else {
+      setDisabled(true)
+    }
   }, [selectedOptions])
+
+  const handleClick = () => {
+    if(selectedOptions.length === 5) {
+      setOpenModal(true)
+    }
+  }
 
   return (
     <div className='order-summary'>
@@ -31,8 +39,8 @@ const OrderSummary: React.FC<Props> = ({ selectedOptions }) => {
           <OrderText id={5} selectedOptions={selectedOptions} />."
         </h4>
       </div>
-      <div className="cta-btn">
-        <Button>
+      <div className="cta-btn" onClick={handleClick}>
+        <Button disabled={disabled}>
           Create My Plan!
         </Button>
       </div>

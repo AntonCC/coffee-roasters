@@ -4,7 +4,7 @@ import './order-summary-modal.scss'
 const OrderSummaryModal: React.FC = () => {
   return (
     <div className='order-summary-modal'>
-
+      
     </div>
   )
 }

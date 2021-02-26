@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './create-plan.scss'
 import Banner from '../../components/banner/banner'
 import PlanSteps from '../../components/plan-steps/plan-steps'
@@ -7,12 +7,24 @@ import OrderSummaryModal from '../../components/order-summary-modal/order-summar
 import { bannerInfo } from './create-plan-info'
 
 const CreatePlan: React.FC = () => {
+  const [openModal, setOpenModal] = useState(false)
+  const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string}>>([])
+
   return (
     <div className='create-plan container'>
       <Banner {...bannerInfo} />
       <PlanSteps inverse />
-      <SubscriptionOptions />
-      <OrderSummaryModal />
+      <SubscriptionOptions 
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        selectedOptions={selectedOptions}
+        setSelectedOptions={setSelectedOptions}
+      />
+      {
+        openModal
+          ? <OrderSummaryModal />
+          : ''
+      }
     </div>
   )
 }

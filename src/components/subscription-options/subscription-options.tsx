@@ -5,10 +5,17 @@ import SubscriptionSection from '../subscription-section/subscription-section'
 import OrderSummary from '../order-summary/order-summary'
 import { subscriptionSectionInfo, subscriptionOptionInfo } from '../../pages/create-plan/create-plan-info'
 
-const SubscriptionOptions: React.FC = () => {
+interface Props {
+  openModal: boolean,
+  setOpenModal: (open: boolean) => void,
+  selectedOptions: Array<{id: number, optionTitle: string}>,
+  setSelectedOptions: (option: Array<{id: number, optionTitle: string}> ) => void, 
+}
+
+const SubscriptionOptions: React.FC<Props> = ({ openModal, setOpenModal, selectedOptions, setSelectedOptions }) => {
   const [activeSectionId, setActiveSectionId] = useState(1)
   const [selectedArray, setSelectedArray] = useState([1])
-  const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string}>>([])
+  
 
   return (
     <div className='subscription-options'>
@@ -39,7 +46,11 @@ const SubscriptionOptions: React.FC = () => {
             />
           ))
         }
-        <OrderSummary selectedOptions={selectedOptions} />
+        <OrderSummary 
+          selectedOptions={selectedOptions}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
       </div>
     </div>
   )
