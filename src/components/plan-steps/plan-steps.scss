@@ -79,6 +79,9 @@
   .plan-steps {
     margin: 14.5rem 0 20rem 0;
     padding: 9rem 3rem;
+    &.inverse {
+      padding: 9rem 2rem;
+    }
   }
 }
 

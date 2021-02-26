@@ -1,12 +1,14 @@
 import react from 'react'
 // Banner
 import Coffee from '../../assets/plan/desktop/image-hero-blackcup.jpg'
+import MobileCoffee from '../../assets/plan/mobile/image-hero-blackcup.jpg'
 
 export const bannerInfo = {
   title: 'Create Plan',
   largerTitle: true,
   body: 'Coffee the way you wanted it to be. For coffee delivered tomorrow, or next week. For whatever brew method you use. For choice, for convenience, for quality.',
-  backgroundImg: Coffee
+  backgroundImg: Coffee,
+  backgroundImgMobile: MobileCoffee
 }
 
 export const subscriptionSectionInfo = [

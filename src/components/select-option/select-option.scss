@@ -8,6 +8,9 @@
   h4 {
     margin-bottom: 2.4rem;
   }
+  &:hover {
+    background: #FDD6BA;
+  }
   &.active {
     background: #0E8784;
     h4, p {

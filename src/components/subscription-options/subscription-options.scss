@@ -5,8 +5,22 @@
   margin-bottom: 16rem;
   .section {
     width: 255px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
   }
   .options {
     width: 730px;
+  }
+}
+
+@media only screen and (max-width: 1135px) {
+  .subscription-options {
+    .section {
+      display: none;
+    }
+    .options {
+      margin: 0 auto;
+    }
   }
 }
