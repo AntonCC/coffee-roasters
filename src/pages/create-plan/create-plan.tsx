@@ -22,7 +22,7 @@ const CreatePlan: React.FC = () => {
       />
       {
         openModal
-          ? <OrderSummaryModal />
+          ? <OrderSummaryModal selectedOptions={selectedOptions} setOpenModal={setOpenModal} />
           : ''
       }
     </div>

@@ -1,8 +1,46 @@
 .order-summary-modal {
   position: fixed;
-  top: calc(50% - 298px);
-  left: calc(50% - 270px);
-  height: 597px;
-  width: 540px;
-  background: lightblue;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .dark-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    opacity: .5;
+    z-index: 5;
+  }
+  .order {
+    position: absolute;
+    top: calc(50% - 298px);
+    left: calc(50% - 270px);
+    max-width: 540px;
+    background: #FEFCF7;
+    border-radius: 10px;
+    z-index: 10;
+    .title {
+      // For some reason parent border radius not applying here
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background: #333D4B;
+      color: #FFFFFF;
+      padding: 5rem 5.5rem;
+    }
+    .wrap {
+      padding: 5rem 5.5rem;
+      h4 {
+        margin-bottom: 2rem;
+      }
+      p {
+        margin-bottom: 5rem;
+      }
+      .cta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
 }
