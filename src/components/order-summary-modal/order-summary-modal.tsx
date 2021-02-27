@@ -5,20 +5,27 @@ import Button from '../button/button'
 
 interface Props {
   selectedOptions: Array<{id: number, optionTitle: string}>,
-  setOpenModal: (open: boolean) => void
+  openModal: { orderSummary: boolean, payment: boolean },
+  setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void
 }
 
-const OrderSummaryModal: React.FC<Props> = ({ selectedOptions, setOpenModal }) => {
-  const handleClick = () => {
-    setOpenModal(false)
+const OrderSummaryModal: React.FC<Props> = ({ selectedOptions, openModal, setOpenModal }) => {
+  // Close modal when bacckground is clicked
+  const handleBackgroundClick = () => {
+    setOpenModal({ orderSummary: false, payment: false })
+  }
+
+  // Close order summary open payment modal
+  const handleCtaClick = () => {
+    setOpenModal({ orderSummary: false, payment: true })
   }
 
   return (
     <div className='order-summary-modal'>
-      <div className="dark-background" onClick={handleClick}></div>
+      <div className="dark-background" onClick={handleBackgroundClick}></div>
       <div className='order'>
         <h2 className="title">Order Summary</h2>
-        <div className="wrap">
+        <div className="body-wrap">
           <h4>
             "I drink my coffee as 
             <OrderText id={1} selectedOptions={selectedOptions} />, with a 
@@ -32,7 +39,7 @@ const OrderSummaryModal: React.FC<Props> = ({ selectedOptions, setOpenModal }) =
           </p>
           <div className="cta">
             <h3>$14.00/mo</h3>
-            <Button>
+            <Button handleClick={handleCtaClick}>
               Checkout
             </Button>
           </div>

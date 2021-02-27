@@ -5,8 +5,8 @@ import Button from '../button/button'
 
 interface Props {
   selectedOptions: Array<{id: number, optionTitle: string}>,
-  openModal: boolean,
-  setOpenModal: (open: boolean) => void
+  openModal: { orderSummary: boolean, payment: boolean },
+  setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void
 }
 
 const OrderSummary: React.FC<Props> = ({ selectedOptions, openModal, setOpenModal }) => {
@@ -22,7 +22,7 @@ const OrderSummary: React.FC<Props> = ({ selectedOptions, openModal, setOpenModa
 
   const handleClick = () => {
     if(selectedOptions.length === 5) {
-      setOpenModal(true)
+      setOpenModal({orderSummary: true, payment: false})
     }
   }
 

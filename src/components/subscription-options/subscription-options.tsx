@@ -6,8 +6,8 @@ import OrderSummary from '../order-summary/order-summary'
 import { subscriptionSectionInfo, subscriptionOptionInfo } from '../../pages/create-plan/create-plan-info'
 
 interface Props {
-  openModal: boolean,
-  setOpenModal: (open: boolean) => void,
+  openModal: { orderSummary: boolean, payment: boolean },
+  setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void,
   selectedOptions: Array<{id: number, optionTitle: string}>,
   setSelectedOptions: (option: Array<{id: number, optionTitle: string}> ) => void, 
 }
