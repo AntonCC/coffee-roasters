@@ -40,7 +40,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
       return;
     }
     setLoading(true)
-    const res = await api.post('/test', {params: { amount: '14'}})
+    const res = await api.post('/secret', {params: { amount: '14'}})
     const clientSecret = res.data.client_secret
 
     const cardElement = elements.getElement(CardElement)!
@@ -84,7 +84,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
           <h2>Payment</h2>
         </div>
         <div className="body-wrap">
-          <form>
+          <form onSubmit={handleSubmit}>
             <input type="text" name="name" placeholder="Name" onChange={handleChange} required/>
             <input type="email" name="email" placeholder="Email" required/>
             <input type="text" name="address" placeholder="Address" required/>
