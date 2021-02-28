@@ -1,11 +1,26 @@
 import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import axios from 'axios'
 import Button from '../../components/button/button'
 import './payment-modal.scss'
 
 interface Props {
   setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void
 }
+
+interface IState {
+  name: string
+  email: string
+  address: string 
+  city: string
+  state: string
+}
+
+const api = axios.create({
+  baseURL: 'https://antonchet.com:5050/api',
+  headers: {'Access-Control-Allow-Origin': '*'}
+})
+
 
 const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
   const stripe = useStripe()
@@ -19,9 +34,43 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
     state: '',
   })
 
-  // const options: any = {
-  //   paddingLeft: '5px',
-  // }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if(!stripe || !elements) {
+      return;
+    }
+    setLoading(true)
+    const res = await api.post('/test', {params: { amount: '14'}})
+    const clientSecret = res.data.client_secret
+
+    const cardElement = elements.getElement(CardElement)!
+    stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardElement,
+        billing_details: {
+          name: formDetails.name,
+          // @ts-ignore
+          address: formDetails.address,
+          city: formDetails.city,
+        }
+      }
+    }).then(result => {
+      if(result.error) {
+        console.log(result.error.message)
+        alert('Error processing the payment. Please review billing information and try again.')
+      } else if(result.paymentIntent.status === 'succeeded') {
+        console.log("Payment successful.")
+        alert("Payment Successfull.")
+      }
+      setLoading(false)
+    })
+  }
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const { name, value } = e.currentTarget
+
+    setFormDetails({[name]: value}as Pick<IState, keyof IState>);
+  }
 
   const handleBackgroundClick = () => {
     setOpenModal({ orderSummary: false, payment: false})
@@ -36,7 +85,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
         </div>
         <div className="body-wrap">
           <form>
-            <input type="text" name="name" placeholder="Name" required/>
+            <input type="text" name="name" placeholder="Name" onChange={handleChange} required/>
             <input type="email" name="email" placeholder="Email" required/>
             <input type="text" name="address" placeholder="Address" required/>
             <div className="row">
@@ -47,8 +96,8 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
               <CardElement options={{
                   style: {
                     base: {
-                      fontSize: '15px',
-                      color: 'red',
+                      fontSize: '17px',
+                      fontStyle: "'Barlow', sans-serif"
                     },
                   }
                 }} 
