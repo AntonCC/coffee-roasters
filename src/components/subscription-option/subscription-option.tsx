@@ -9,10 +9,10 @@ interface Props {
   setActiveSectionId: (active: number) => void,
   selectedArray: number[],
   setSelectedArray: (selected: number[]) => void,
-  selectedOptions: Array<{id: number, optionTitle: string}>,
-  setSelectedOptions: (option: Array<{id: number, optionTitle: string}> ) => void, 
+  selectedOptions: Array<{id: number, optionTitle: string, price?: number}>,
+  setSelectedOptions: (option: Array<{id: number, optionTitle: string, price?: number}> ) => void, 
   title: string,
-  options: { optionTitle: string; optionBody: string; }[]
+  options: { optionTitle: string, optionBody: string, price?: number }[]
 }
 
 const SubscriptionOption: React.FC<Props> = ({ 
@@ -29,7 +29,7 @@ const SubscriptionOption: React.FC<Props> = ({
   const [open, setOpen] = useState(false)
   
 
-  // If option is closed open it. The add that option to selected array
+  // If option is closed open it. Then add that option to selected array
   // If option is open close it. Then remove it from selected array.
   // Selected array exists so section highlighting can jump back to previously selected item, when current selected item closes. 
   const handleClick = () => {

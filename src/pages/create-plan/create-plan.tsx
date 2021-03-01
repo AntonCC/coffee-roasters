@@ -9,7 +9,10 @@ import { bannerInfo } from './create-plan-info'
 
 const CreatePlan: React.FC = () => {
   const [openModal, setOpenModal] = useState({ orderSummary: false, payment: false })
-  const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string}>>([])
+  const [selectedOptions, setSelectedOptions] = useState<Array<{id: number, optionTitle: string, price?: number}>>([])
+  const [orderTotal, setOrderTotal] = useState(0)
+  // For adding trailing zeros when displaying price
+  const [orderTotalString, setOrderTotalString] = useState('')
 
   return (
     <div className='create-plan container'>
@@ -26,7 +29,11 @@ const CreatePlan: React.FC = () => {
           ? <OrderSummaryModal 
               selectedOptions={selectedOptions}
               openModal={openModal} 
-              setOpenModal={setOpenModal} 
+              setOpenModal={setOpenModal}
+              orderTotal={orderTotal}
+              setOrderTotal={setOrderTotal} 
+              orderTotalString={orderTotalString}
+              setOrderTotalString={setOrderTotalString}
             />
           : ''
       }
@@ -34,6 +41,8 @@ const CreatePlan: React.FC = () => {
         openModal.payment
           ? <PaymentModal 
               setOpenModal={setOpenModal}
+              orderTotal={orderTotal}
+              orderTotalString={orderTotalString}
             />
           : ''
       }

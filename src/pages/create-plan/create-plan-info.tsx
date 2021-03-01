@@ -82,15 +82,18 @@ export const subscriptionOptionInfo = [
     options: [
       {
         optionTitle: '250g',
-        optionBody: 'Perfect for the solo drinker. Yields about 12 delicious cups.'
+        optionBody: 'Perfect for the solo drinker. Yields about 12 delicious cups.',
+        price: 3
       },
       {
         optionTitle: '500g',
-        optionBody: 'Perfect option for a couple. Yields about 40 delectable cups.'
+        optionBody: 'Perfect option for a couple. Yields about 40 delectable cups.',
+        price: 5
       },
       {
         optionTitle: '1000g',
-        optionBody: 'Perfect for offices and events. Yields about 90 delightful cups.'
+        optionBody: 'Perfect for offices and events. Yields about 90 delightful cups.',
+        price: 7
       },
     ]
   },
@@ -118,15 +121,18 @@ export const subscriptionOptionInfo = [
     options: [
       {
         optionTitle: 'Every Week',
-        optionBody: '$7.20 per shipment. Includes free first-class shipping.'
+        optionBody: '$7.20 per shipment. Includes free first-class shipping.',
+        price: 7.20
       },
       {
         optionTitle: 'Every 2 Weeks',
-        optionBody: '$9.60 per shipment. Includes free priority shipping.'
+        optionBody: '$9.60 per shipment. Includes free priority shipping.',
+        price: 9.60
       },
       {
         optionTitle: 'Every month',
-        optionBody: '$12.00 per shipment. Includes free priority shipping.'
+        optionBody: '$12.00 per shipment. Includes free priority shipping.',
+        price: 12.00
       },
     ]
   },

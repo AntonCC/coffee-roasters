@@ -5,7 +5,9 @@ import Button from '../../components/button/button'
 import './payment-modal.scss'
 
 interface Props {
-  setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void
+  setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void,
+  orderTotal: number,
+  orderTotalString: string
 }
 
 interface IState {
@@ -22,7 +24,7 @@ const api = axios.create({
 })
 
 
-const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
+const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalString }) => {
   const stripe = useStripe()
   const elements = useElements()
   const [isLoading, setLoading] = useState(false)
@@ -40,7 +42,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
       return;
     }
     setLoading(true)
-    const res = await api.post('/secret', {params: { amount: '14'}})
+    const res = await api.post('/secret', {params: { amount: orderTotalString}})
     const clientSecret = res.data.client_secret
 
     const cardElement = elements.getElement(CardElement)!
@@ -82,6 +84,9 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
       <div className="payment">
         <div className="title-wrap">
           <h2>Payment</h2>
+          <p>*Test Card Num: 4242 4242 4242 4242</p>
+          <p>*Exp: 12/22, *CVC: 222</p>
+          <p>*Zip: 11538</p>
         </div>
         <div className="body-wrap">
           <form onSubmit={handleSubmit}>
@@ -104,6 +109,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
               />
             </div>
             <div className="cta">
+              <h3>${ orderTotalString }/mo</h3>
               <Button disabled={isLoading}>
                 {
                   isLoading

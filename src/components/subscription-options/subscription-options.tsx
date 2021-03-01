@@ -8,8 +8,8 @@ import { subscriptionSectionInfo, subscriptionOptionInfo } from '../../pages/cre
 interface Props {
   openModal: { orderSummary: boolean, payment: boolean },
   setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void,
-  selectedOptions: Array<{id: number, optionTitle: string}>,
-  setSelectedOptions: (option: Array<{id: number, optionTitle: string}> ) => void, 
+  selectedOptions: Array<{id: number, optionTitle: string, price?: number}>,
+  setSelectedOptions: (option: Array<{id: number, optionTitle: string, price?: number}> ) => void, 
 }
 
 const SubscriptionOptions: React.FC<Props> = ({ openModal, setOpenModal, selectedOptions, setSelectedOptions }) => {
