@@ -59,10 +59,10 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
         console.log(result.error.message)
         alert('Error processing the payment. Please review billing information and try again.')
       } else if(result.paymentIntent.status === 'succeeded') {
-        console.log("Payment successful.")
         alert("Payment Successfull.")
       }
       setLoading(false)
+      closeAllModals()
     })
   }
 
@@ -72,13 +72,13 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
     setFormDetails({[name]: value}as Pick<IState, keyof IState>);
   }
 
-  const handleBackgroundClick = () => {
+  const closeAllModals = () => {
     setOpenModal({ orderSummary: false, payment: false})
   }
 
   return (
     <div className='payment-modal'>
-      <div className="dark-background" onClick={handleBackgroundClick}></div>
+      <div className="dark-background" onClick={closeAllModals}></div>
       <div className="payment">
         <div className="title-wrap">
           <h2>Payment</h2>
@@ -104,8 +104,12 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal }) => {
               />
             </div>
             <div className="cta">
-              <Button>
-                Pay Now
+              <Button disabled={isLoading}>
+                {
+                  isLoading
+                    ? 'Processing...'
+                    : 'Pay Now'
+                }
               </Button>
             </div>
           </form>
