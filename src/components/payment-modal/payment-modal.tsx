@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import axios from 'axios'
 import Button from '../../components/button/button'
+import { ReactComponent as X } from '../../assets/shared/mobile/times-solid.svg'
 import './payment-modal.scss'
 
 interface Props {
@@ -87,6 +88,9 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalStr
           <p>*Test Card Num: 4242 4242 4242 4242</p>
           <p>*Exp: 12/22, *CVC: 222</p>
           <p>*Zip: 11538</p>
+          <div className="close" onClick={closeAllModals}>
+            <X />
+          </div>
         </div>
         <div className="body-wrap">
           <form onSubmit={handleSubmit}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './order-summary-modal.scss'
 import OrderText from '../order-text/order-text'
 import Button from '../button/button'
+import { ReactComponent as X } from '../../assets/shared/mobile/times-solid.svg'
 
 interface Props {
   selectedOptions: Array<{id: number, optionTitle: string, price?: number}>,
@@ -23,10 +24,9 @@ const OrderSummaryModal: React.FC<Props> = (
     orderTotalString,
     setOrderTotalString
   }) => {
-  // const [orderTotalString, setOrderTotalString] = useState('')
 
   // Close modal when background is clicked
-  const handleBackgroundClick = () => {
+  const closeAllModals = () => {
     setOpenModal({ orderSummary: false, payment: false })
   }
 
@@ -60,9 +60,14 @@ const OrderSummaryModal: React.FC<Props> = (
 
   return (
     <div className='order-summary-modal'>
-      <div className="dark-background" onClick={handleBackgroundClick}></div>
+      <div className="dark-background" onClick={closeAllModals}></div>
       <div className='order'>
-        <h2 className="title">Order Summary</h2>
+        <div className="title">
+          <h2>Order Summary</h2>
+          <div className="close" onClick={closeAllModals}>
+            <X />
+          </div>
+        </div>
         <div className="body-wrap">
           <h4>
             "I drink my coffee as 
