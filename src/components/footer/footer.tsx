@@ -12,7 +12,9 @@ const Footer: React.FC = () => {
       <footer className='footer-main container'>
         <div className="side-a">
           <div className="logo">
-            <img src={Logo} alt="Logo"/>
+            <NavLink to='/'>
+              <img src={Logo} alt="Logo"/>
+            </NavLink>
           </div>
           <ul>
             <li>

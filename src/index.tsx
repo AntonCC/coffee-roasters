@@ -12,7 +12,7 @@ const stripe = loadStripe('pk_test_Z7jJCliZV8OSj3W5iv3dI2yg0074ZWtPBk')
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename='/coffee-roasters'>
       <Elements stripe={stripe}>
         <WidthProvider>
           <App />

@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import About from './pages/about/about';
 import CreatePlan from './pages/create-plan/create-plan'
 // Components
+import ScrollTop from './components/scroll-top/scroll-top'
 import Navbar from './components/navbar/navbar'
 import Footer from './components/footer/footer'
 
@@ -35,8 +36,8 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <ScrollTop />
       <Navbar />
-      {/* <MobileNavbar /> */}
       <Switch>
         {
           routes.map(({ path, name, component}) => (

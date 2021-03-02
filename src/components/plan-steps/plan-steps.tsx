@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './plan-steps.scss'
 import Button from '../button/button'
 
@@ -45,9 +46,11 @@ const PlanSteps: React.FC<Props> = ({ inverse }) => {
           ? ''
           : (
             <div className="cta-btn">
-              <Button>
-                Create a plan
-              </Button>
+              <NavLink to='/create-plan'>
+                <Button>
+                  Create a plan
+                </Button>
+              </NavLink>
             </div>
           )
       }
