@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 import Button from '../../components/button/button'
 import { ReactComponent as X } from '../../assets/shared/mobile/times-solid.svg'
 import './payment-modal.scss'
@@ -8,9 +9,11 @@ import './payment-modal.scss'
 interface Props {
   setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void,
   orderTotal: number,
-  orderTotalString: string
+  orderTotalString: string,
+  setSelectedOptions: (option: Array<{id: number, optionTitle: string, price?: number}> ) => void,
 }
 
+// For form handleChange
 interface IState {
   name: string
   email: string
@@ -25,9 +28,10 @@ const api = axios.create({
 })
 
 
-const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalString }) => {
+const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalString, setSelectedOptions }) => {
   const stripe = useStripe()
   const elements = useElements()
+  let history = useHistory()
   const [isLoading, setLoading] = useState(false)
   const [formDetails, setFormDetails] = useState({
     name: '',
@@ -66,6 +70,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalStr
       }
       setLoading(false)
       closeAllModals()
+      history.push('/')
     })
   }
 

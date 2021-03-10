@@ -43,6 +43,7 @@ const CreatePlan: React.FC = () => {
               setOpenModal={setOpenModal}
               orderTotal={orderTotal}
               orderTotalString={orderTotalString}
+              setSelectedOptions={setSelectedOptions}
             />
           : ''
       }

@@ -1,8 +1,8 @@
-import react from 'react'
+import React from 'react';
 
 
 const debounce = (func: Function, wait: number) => {
-  let timeout: number | undefined ;
+  let timeout: number;
 
   return function executedFunction(...args: any[]) {
     const later = () => {
