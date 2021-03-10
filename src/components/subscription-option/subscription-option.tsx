@@ -60,7 +60,15 @@ const SubscriptionOption: React.FC<Props> = ({
       <div className={`drop-down ${open ? 'open' : ''}`}>
         {
           options.map(info => (
-            <SelectOption optionsId={id} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} {...info} />
+            <SelectOption 
+              optionsId={id} 
+              selectedOptions={selectedOptions} 
+              setSelectedOptions={setSelectedOptions}
+              selectedArray={selectedArray}
+              setSelectedArray={setSelectedArray}
+              setActiveSectionId={setActiveSectionId} 
+              {...info} 
+            />
           ))
         }
       </div>

@@ -2,9 +2,25 @@ import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import Button from '../../components/button/button'
 import { ReactComponent as X } from '../../assets/shared/mobile/times-solid.svg'
 import './payment-modal.scss'
+
+const modalVariants = {
+  hidden: {
+    opacity: 0,
+    top: 0
+  },
+  visible: {
+    opacity: 1,
+    top: '50%',
+    transition: {
+      type: 'spring',
+      duration: 0.5
+    }
+  }
+}
 
 interface Props {
   setOpenModal: (open: {orderSummary: boolean, payment: boolean}) => void,
@@ -87,7 +103,13 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalStr
   return (
     <div className='payment-modal'>
       <div className="dark-background" onClick={closeAllModals}></div>
-      <div className="payment">
+      <motion.div 
+        className="payment"
+        variants={modalVariants}
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+      >
         <div className="title-wrap">
           <h2>Payment</h2>
           <p>*Test Card Num: 4242 4242 4242 4242</p>
@@ -129,7 +151,7 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalStr
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }
