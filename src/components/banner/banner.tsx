@@ -1,6 +1,27 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { WidthContext } from '../../contexts/widthContext'
+import { motion } from 'framer-motion'
 import './banner.scss'
+
+const containerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.5
+    }
+  }
+}
+
+const textVariants = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1
+    }
+  }
+}
 
 interface Props {
   title: string,
@@ -28,10 +49,24 @@ const Banner: React.FC<Props> = ({ title, largerTitle, body, backgroundImg, back
       className='banner'
       style={{ background: `linear-gradient(to right, rgba(0,0,0,.3), rgba(0,0,0,.3)), url('${img}') no-repeat center/cover`}}
     >
-      <div className="text">
-        <h2 className={largerTitle ? 'larger' : ''}>{ title }</h2>
-        <p>{ body }</p>
-      </div>
+      <motion.div className="text"
+        variants={containerVariants}
+        animate='visible'
+      >
+        <motion.h2 
+          className={largerTitle ? 'larger' : ''}
+          variants={textVariants}
+          initial='hidden'
+        >
+          { title }
+        </motion.h2>
+        <motion.p
+          variants={textVariants}
+          initial='hidden'
+        >
+          { body }
+        </motion.p>
+      </motion.div>
     </div>
   )
 }

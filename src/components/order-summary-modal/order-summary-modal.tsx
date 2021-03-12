@@ -12,7 +12,11 @@ const modalVariants = {
   },
   visible: {
     opacity: 1,
-    top: '50%'
+    top: '50%',
+    transition: {
+      type: 'spring',
+      mass: 0.7
+    }
   }
 }
 

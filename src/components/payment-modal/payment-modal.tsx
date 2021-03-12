@@ -17,7 +17,7 @@ const modalVariants = {
     top: '50%',
     transition: {
       type: 'spring',
-      duration: 0.5
+      mass: 0.7
     }
   }
 }
@@ -108,7 +108,6 @@ const PaymentModal: React.FC<Props> = ({ setOpenModal, orderTotal, orderTotalStr
         variants={modalVariants}
         initial="hidden"
         animate="visible"
-        exit="hidden"
       >
         <div className="title-wrap">
           <h2>Payment</h2>

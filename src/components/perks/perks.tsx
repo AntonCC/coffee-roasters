@@ -1,5 +1,6 @@
 import React from 'react'
 import './perks.scss'
+import { motion } from 'framer-motion'
 import PerkCard from '../perk-card/perk-card'
 
 interface Props {
