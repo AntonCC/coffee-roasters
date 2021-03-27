@@ -35,10 +35,11 @@
     // margin: 0rem auto 10rem auto;
     grid-gap: 0rem;
     .title-alternate {
-      font-size: 4.2rem;
-      top: -35px;
-      left: calc(50% - 147px);
-      opacity: .3;
+      display: none;
+      // font-size: 4.2rem;
+      // top: -35px;
+      // left: calc(50% - 147px);
+      // opacity: .3;
     }
   }
 }
